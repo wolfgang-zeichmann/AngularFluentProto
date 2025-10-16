@@ -32,10 +32,10 @@
         <h3>Text Field</h3>
         <fluent-text-field 
           placeholder="Enter some text..." 
-          [value]="textValue"
-          (input)="onTextChange($event)">
+          [value]="exampleTextField"
+          (input)="onTextFieldChange($event)">
         </fluent-text-field>
-        <p>Current value: {{ textValue }}</p>
+        <p>Current value: {{ exampleTextField }}</p>
       </div>
       
       <div class="component-item">

@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
   selectValue = 'apple';
   sliderValue = 50;
   switchValue = false;
+  exampleTextField = 'Initial Value';
 
   ngOnInit(): void {
     // Register Fluent UI Web Components
@@ -61,6 +62,10 @@ export class AppComponent implements OnInit {
 
   onTextChange(event: any): void {
     this.textValue = event.target.value;
+  }
+
+  onTextFieldChange(event: any): void {
+    this.exampleTextField = event.target.value;
   }
 
   onCheckboxChange(event: any): void {
