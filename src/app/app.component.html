@@ -72,6 +72,16 @@
         </fluent-select>
         <p>Selected: {{ selectValue }}</p>
       </div>
+      
+      <div class="component-item">
+        <h3>Date Picker</h3>
+        <fluent-text-field 
+          type="date"
+          [value]="selectedDate"
+          (input)="onDateChange($event)">
+        </fluent-text-field>
+        <p>Selected Date: {{ selectedDate }}</p>
+      </div>
     </div>
   </div>
 
@@ -148,9 +158,16 @@
           </div>
         </fluent-accordion-item>
         <fluent-accordion-item>
-          <span slot="heading">Section 3</span>
+          <span slot="heading">Date Picker Example</span>
           <div>
-            <p>Third section content goes here.</p>
+            <p>Calendar-like date selection using HTML5 date input:</p>
+            <fluent-text-field 
+              type="date"
+              [value]="selectedDate"
+              (input)="onDateChange($event)"
+              placeholder="Select a date">
+            </fluent-text-field>
+            <p>Selected: {{ selectedDate }}</p>
           </div>
         </fluent-accordion-item>
       </fluent-accordion>

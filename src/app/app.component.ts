@@ -33,6 +33,7 @@ export class AppComponent implements OnInit {
   sliderValue = 50;
   switchValue = false;
   exampleTextField = 'Initial Value';
+  selectedDate = '2025-10-16';
 
   ngOnInit(): void {
     // Register Fluent UI Web Components
@@ -86,5 +87,9 @@ export class AppComponent implements OnInit {
 
   onSwitchChange(event: any): void {
     this.switchValue = event.target.checked;
+  }
+
+  onDateChange(event: any): void {
+    this.selectedDate = event.target.value;
   }
 }
