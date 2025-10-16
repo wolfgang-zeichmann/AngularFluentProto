@@ -1,0 +1,47 @@
+/* Component-specific styles */
+
+.component-grid fluent-button {
+  margin: 5px;
+}
+
+.component-grid fluent-badge {
+  margin: 0 5px;
+}
+
+fluent-card {
+  padding: 20px;
+  margin: 10px 0;
+}
+
+fluent-text-field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+fluent-select {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+fluent-slider {
+  width: 100%;
+  margin: 10px 0;
+}
+
+fluent-progress-ring {
+  margin: 10px 0;
+}
+
+fluent-accordion {
+  width: 100%;
+}
+
+fluent-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+fluent-divider {
+  margin: 20px 0;
+}

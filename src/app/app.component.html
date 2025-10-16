@@ -1,0 +1,159 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+  
+  <div class="section">
+    <h2>Buttons</h2>
+    <div class="component-grid">
+      <div class="component-item">
+        <h3>Basic Button</h3>
+        <fluent-button (click)="onButtonClick()">Click me!</fluent-button>
+      </div>
+      <div class="component-item">
+        <h3>Accent Button</h3>
+        <fluent-button appearance="accent" (click)="onButtonClick()">Accent Button</fluent-button>
+      </div>
+      <div class="component-item">
+        <h3>Lightweight Button</h3>
+        <fluent-button appearance="lightweight" (click)="onButtonClick()">Lightweight</fluent-button>
+      </div>
+      <div class="component-item">
+        <h3>Outline Button</h3>
+        <fluent-button appearance="outline" (click)="onButtonClick()">Outline</fluent-button>
+      </div>
+    </div>
+  </div>
+
+  <fluent-divider></fluent-divider>
+
+  <div class="section">
+    <h2>Input Controls</h2>
+    <div class="component-grid">
+      <div class="component-item">
+        <h3>Text Field</h3>
+        <fluent-text-field 
+          placeholder="Enter some text..." 
+          [value]="textValue"
+          (input)="onTextChange($event)">
+        </fluent-text-field>
+        <p>Current value: {{ textValue }}</p>
+      </div>
+      
+      <div class="component-item">
+        <h3>Checkbox</h3>
+        <fluent-checkbox 
+          [checked]="isChecked"
+          (change)="onCheckboxChange($event)">
+          Check me!
+        </fluent-checkbox>
+        <p>Checked: {{ isChecked }}</p>
+      </div>
+      
+      <div class="component-item">
+        <h3>Radio Group</h3>
+        <fluent-radio-group 
+          [value]="radioValue"
+          (change)="onRadioChange($event)">
+          <fluent-radio value="option1">Option 1</fluent-radio>
+          <fluent-radio value="option2">Option 2</fluent-radio>
+          <fluent-radio value="option3">Option 3</fluent-radio>
+        </fluent-radio-group>
+        <p>Selected: {{ radioValue }}</p>
+      </div>
+      
+      <div class="component-item">
+        <h3>Select</h3>
+        <fluent-select 
+          [value]="selectValue"
+          (change)="onSelectChange($event)">
+          <fluent-option value="apple">Apple</fluent-option>
+          <fluent-option value="banana">Banana</fluent-option>
+          <fluent-option value="cherry">Cherry</fluent-option>
+          <fluent-option value="date">Date</fluent-option>
+        </fluent-select>
+        <p>Selected: {{ selectValue }}</p>
+      </div>
+    </div>
+  </div>
+
+  <fluent-divider></fluent-divider>
+
+  <div class="section">
+    <h2>Interactive Controls</h2>
+    <div class="component-grid">
+      <div class="component-item">
+        <h3>Slider</h3>
+        <fluent-slider 
+          min="0" 
+          max="100" 
+          [value]="sliderValue"
+          (change)="onSliderChange($event)">
+        </fluent-slider>
+        <p>Value: {{ sliderValue }}</p>
+      </div>
+      
+      <div class="component-item">
+        <h3>Switch</h3>
+        <fluent-switch 
+          [checked]="switchValue"
+          (change)="onSwitchChange($event)">
+          Toggle me
+        </fluent-switch>
+        <p>On: {{ switchValue }}</p>
+      </div>
+      
+      <div class="component-item">
+        <h3>Progress Ring</h3>
+        <fluent-progress-ring [value]="sliderValue"></fluent-progress-ring>
+        <p>Progress: {{ sliderValue }}%</p>
+      </div>
+      
+      <div class="component-item">
+        <h3>Badges</h3>
+        <fluent-badge>Default</fluent-badge>
+        <fluent-badge appearance="accent">Accent</fluent-badge>
+        <fluent-badge appearance="lightweight">Light</fluent-badge>
+      </div>
+    </div>
+  </div>
+
+  <fluent-divider></fluent-divider>
+
+  <div class="section">
+    <h2>Layout Components</h2>
+    
+    <div class="component-item">
+      <h3>Card</h3>
+      <fluent-card>
+        <h4 style="margin-top: 0;">Card Title</h4>
+        <p>This is a Fluent UI card component. It can contain any content and provides a nice elevated surface.</p>
+        <fluent-button appearance="accent">Card Action</fluent-button>
+      </fluent-card>
+    </div>
+
+    <div class="component-item" style="margin-top: 20px;">
+      <h3>Accordion</h3>
+      <fluent-accordion>
+        <fluent-accordion-item>
+          <span slot="heading">Section 1</span>
+          <div>
+            <p>This is the content of the first accordion section. You can put any content here including other Fluent UI components.</p>
+            <fluent-button>Action in Accordion</fluent-button>
+          </div>
+        </fluent-accordion-item>
+        <fluent-accordion-item>
+          <span slot="heading">Section 2</span>
+          <div>
+            <p>This is the second section with different content.</p>
+            <fluent-checkbox>Checkbox in accordion</fluent-checkbox>
+          </div>
+        </fluent-accordion-item>
+        <fluent-accordion-item>
+          <span slot="heading">Section 3</span>
+          <div>
+            <p>Third section content goes here.</p>
+          </div>
+        </fluent-accordion-item>
+      </fluent-accordion>
+    </div>
+  </div>
+</div>
