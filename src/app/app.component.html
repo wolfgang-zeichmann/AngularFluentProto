@@ -172,5 +172,115 @@
         </fluent-accordion-item>
       </fluent-accordion>
     </div>
+
+    
+    <div class="component-item" style="margin-top: 20px;">
+      <h3>Interactive Calendar with Appointments</h3>
+      <div class="calendar-container">
+        <div class="calendar-section">
+          <fluent-calendar 
+            #calendar
+            (click)="onCalendarDateSelect($event)"
+            (change)="onCalendarDateSelect($event)">
+          </fluent-calendar>
+          <div class="calendar-legend">
+            <h4>Legend</h4>
+            <div class="legend-item">
+              <span class="legend-dot meeting"></span>
+              <span>Meetings</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot reminder"></span>
+              <span>Reminders</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot event"></span>
+              <span>Events</span>
+            </div>
+            
+            <!-- Test buttons for date selection -->
+            <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e1e1e1;">
+              <h5 style="margin: 0 0 10px 0; font-size: 12px; color: #605e5c;">Quick Date Selection:</h5>
+              <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                <fluent-button appearance="lightweight" (click)="selectDate('2025-10-17')" style="font-size: 11px; padding: 4px 8px;">Oct 17</fluent-button>
+                <fluent-button appearance="lightweight" (click)="selectDate('2025-10-18')" style="font-size: 11px; padding: 4px 8px;">Oct 18</fluent-button>
+                <fluent-button appearance="lightweight" (click)="selectDate('2025-10-20')" style="font-size: 11px; padding: 4px 8px;">Oct 20</fluent-button>
+                <fluent-button appearance="lightweight" (click)="selectDate('2025-10-22')" style="font-size: 11px; padding: 4px 8px;">Oct 22</fluent-button>
+                <fluent-button appearance="lightweight" (click)="selectDate('2025-10-25')" style="font-size: 11px; padding: 4px 8px;">Oct 25</fluent-button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="appointments-section">
+          <h4>Appointments</h4>
+          <div *ngIf="selectedCalendarDate; else noDateSelected" class="appointments-details">
+            <h5>{{ formatSelectedDate() }}</h5>
+            <div *ngIf="getAppointmentsForSelectedDate().length > 0; else noAppointments" class="appointments-list">
+              <div 
+                *ngFor="let appointment of getAppointmentsForSelectedDate()" 
+                class="appointment-item"
+                [ngClass]="getAppointmentTypeClass(appointment.type)">
+                <div class="appointment-time">{{ appointment.time }}</div>
+                <div class="appointment-content">
+                  <div class="appointment-title">{{ appointment.title }}</div>
+                  <div class="appointment-description">{{ appointment.description }}</div>
+                  <div class="appointment-type-badge">
+                    <fluent-badge [appearance]="appointment.type === 'meeting' ? 'accent' : appointment.type === 'event' ? 'lightweight' : 'default'">
+                      {{ appointment.type | titlecase }}
+                    </fluent-badge>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ng-template #noAppointments>
+              <p class="no-appointments">No appointments scheduled for this date.</p>
+            </ng-template>
+          </div>
+          <ng-template #noDateSelected>
+            <p class="select-date-prompt">Select a date from the calendar to view appointments.</p>
+          </ng-template>
+          
+          <div class="appointment-hints">
+            <h5>Upcoming Appointments</h5>
+            <div class="hints-list">
+              <div class="hint-item">
+                <strong>Oct 17:</strong> 2 appointments
+                <div class="hint-dots">
+                  <span class="hint-dot meeting"></span>
+                  <span class="hint-dot meeting"></span>
+                </div>
+              </div>
+              <div class="hint-item">
+                <strong>Oct 18:</strong> 2 appointments
+                <div class="hint-dots">
+                  <span class="hint-dot meeting"></span>
+                  <span class="hint-dot reminder"></span>
+                </div>
+              </div>
+              <div class="hint-item">
+                <strong>Oct 20:</strong> 1 appointment
+                <div class="hint-dots">
+                  <span class="hint-dot meeting"></span>
+                </div>
+              </div>
+              <div class="hint-item">
+                <strong>Oct 22:</strong> 2 appointments
+                <div class="hint-dots">
+                  <span class="hint-dot event"></span>
+                  <span class="hint-dot event"></span>
+                </div>
+              </div>
+              <div class="hint-item">
+                <strong>Oct 25:</strong> 1 appointment
+                <div class="hint-dots">
+                  <span class="hint-dot meeting"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
